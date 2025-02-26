@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>PNG Generator</h1>
+        
+        <div class="settings-panel">
+            <div class="form-group">
+                <label for="agency-id">Agency ID:</label>
+                <input type="text" id="agency-id" placeholder="Enter agency ID">
+            </div>
+            
+            <div class="form-group">
+                <label for="logo-upload">Upload Logo:</label>
+                <input type="file" id="logo-upload" accept="image/*">
+            </div>
+            
+            <div class="form-group">
+                <label for="color-picker">Background Color:</label>
+                <input type="color" id="color-picker" value="#ffffff">
+            </div>
+            
+            <button id="generate-btn">Generate Images</button>
+            <button id="download-btn" disabled>Download Images</button>
+        </div>
+        
+        <div class="canvas-container">
+            <div class="canvas-group">
+                <h3>Landscape Agency</h3>
+                <canvas id="landscape-agency-canvas" width="1920" height="1080"></canvas>
+                <div class="canvas-controls">
+                    <button class="center-horizontal-btn" data-canvas="landscape-agency">Center H</button>
+                    <button class="center-vertical-btn" data-canvas="landscape-agency">Center V</button>
+                    <button class="reset-logo-btn" data-canvas="landscape-agency">Reset Logo</button>
+                </div>
+            </div>
+            
+            <div class="canvas-group">
+                <h3>Landscape Endcard</h3>
+                <canvas id="landscape-endcard-canvas" width="1920" height="1080"></canvas>
+                <div class="canvas-controls">
+                    <button class="center-horizontal-btn" data-canvas="landscape-endcard">Center H</button>
+                    <button class="center-vertical-btn" data-canvas="landscape-endcard">Center V</button>
+                    <button class="reset-logo-btn" data-canvas="landscape-endcard">Reset Logo</button>
+                </div>
+            </div>
+            
+            <div class="canvas-group">
+                <h3>Portrait Agency</h3>
+                <canvas id="portrait-agency-canvas" width="1080" height="1920"></canvas>
+                <div class="canvas-controls">
+                    <button class="center-horizontal-btn" data-canvas="portrait-agency">Center H</button>
+                    <button class="center-vertical-btn" data-canvas="portrait-agency">Center V</button>
+                    <button class="reset-logo-btn" data-canvas="portrait-agency">Reset Logo</button>
+                </div>
+            </div>
+            
+            <div class="canvas-group">
+                <h3>Portrait Endcard</h3>
+                <canvas id="portrait-endcard-canvas" width="1080" height="1920"></canvas>
+                <div class="canvas-controls">
+                    <button class="center-horizontal-btn" data-canvas="portrait-endcard">Center H</button>
+                    <button class="center-vertical-btn" data-canvas="portrait-endcard">Center V</button>
+                    <button class="reset-logo-btn" data-canvas="portrait-endcard">Reset Logo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
